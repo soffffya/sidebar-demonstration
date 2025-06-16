@@ -1,3 +1,9 @@
+# [Демонстрация с выполненным ТЗ](https://soffffya.github.io/sidebar-demonstration)
+
+https://soffffya.github.io/sidebar-demonstration
+
+---
+
 # Тестовое задание
 
 Установка зависимостей `npm install`
