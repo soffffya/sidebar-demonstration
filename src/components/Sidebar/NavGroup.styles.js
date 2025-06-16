@@ -52,13 +52,18 @@ export const NavContent = styled.div`
     }
 
     span {
-        position: ${({ $isOpened }) => ($isOpened ? 'static' : 'absolute')};
-        left: ${({ $isOpened }) => ($isOpened ? 'auto' : '-9999px')};
-        opacity: ${({ $isOpened }) => ($isOpened ? 1 : 0)};
-        pointer-events: ${({ $isOpened }) => ($isOpened ? 'auto' : 'none')};
+        overflow: hidden;
         white-space: nowrap;
-        transition: opacity 0.3s ease;
         margin-left: ${({ $isOpened }) => ($isOpened ? '12px' : '0')};
+        opacity: ${({ $isOpened }) => ($isOpened ? 1 : 0)};
+        max-width: ${({ $isOpened }) => ($isOpened ? '160px' : '0')};
+        pointer-events: ${({ $isOpened }) => ($isOpened ? 'auto' : 'none')};
         visibility: ${({ $isOpened }) => ($isOpened ? 'visible' : 'hidden')};
+
+        transition:
+                opacity 0.3s ease,
+                max-width 0.3s ease,
+                margin-left 0.3s ease,
+                visibility 0s linear ${({ $isOpened }) => ($isOpened ? '0s' : '0.3s')};
     }
 `;
