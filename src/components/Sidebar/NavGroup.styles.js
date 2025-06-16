@@ -29,7 +29,7 @@ export const NavContent = styled.div`
     display: flex;
     align-items: center;
     height: 100%;
-    width: 100%; /* всегда 100% */
+    width: 100%;
     padding: 0 ${({ $isOpened }) => ($isOpened ? '16px' : '16px')};
     border-radius: 8px;
     transition: padding 0.3s ease, background-color 0.2s ease, color 0.2s ease;
@@ -43,7 +43,7 @@ export const NavContent = styled.div`
         align-items: center;
         justify-content: center;
         font-size: 18px;
-        flex-shrink: 0; /* не сжимать */
+        flex-shrink: 0;
     }
 
     .icon svg {
