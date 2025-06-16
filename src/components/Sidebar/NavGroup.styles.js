@@ -29,10 +29,10 @@ export const NavContent = styled.div`
     display: flex;
     align-items: center;
     height: 100%;
-    width: ${({ $isOpened }) => ($isOpened ? '100%' : '40px')};
-    padding: 0 16px;
+    width: 100%; /* всегда 100% */
+    padding: 0 ${({ $isOpened }) => ($isOpened ? '16px' : '16px')};
     border-radius: 8px;
-    transition: background-color 0.2s ease, color 0.2s ease, width 0.3s ease;
+    transition: padding 0.3s ease, background-color 0.2s ease, color 0.2s ease;
 
     color: ${({ $color }) => `var(--color-text-${$color}-default)`};
 
@@ -43,6 +43,7 @@ export const NavContent = styled.div`
         align-items: center;
         justify-content: center;
         font-size: 18px;
+        flex-shrink: 0; /* не сжимать */
     }
 
     .icon svg {
@@ -51,18 +52,13 @@ export const NavContent = styled.div`
     }
 
     span {
-        overflow: hidden;
-        white-space: nowrap;
-        margin-left: ${({ $isOpened }) => ($isOpened ? '12px' : '0')};
+        position: ${({ $isOpened }) => ($isOpened ? 'static' : 'absolute')};
+        left: ${({ $isOpened }) => ($isOpened ? 'auto' : '-9999px')};
         opacity: ${({ $isOpened }) => ($isOpened ? 1 : 0)};
-        max-width: ${({ $isOpened }) => ($isOpened ? '160px' : '0')};
         pointer-events: ${({ $isOpened }) => ($isOpened ? 'auto' : 'none')};
+        white-space: nowrap;
+        transition: opacity 0.3s ease;
+        margin-left: ${({ $isOpened }) => ($isOpened ? '12px' : '0')};
         visibility: ${({ $isOpened }) => ($isOpened ? 'visible' : 'hidden')};
-
-        transition:
-                opacity 0.3s ease,
-                max-width 0.3s ease,
-                margin-left 0.3s ease,
-                visibility 0s linear ${({ $isOpened }) => ($isOpened ? '0s' : '0.3s')};
     }
 `;
